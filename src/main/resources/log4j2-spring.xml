@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="info">
+
+	<Properties>
+		<Property name="log.file.directory" value="/usr/local/logs/http-server"/>
+		<Property name="log.file.max-size" value="500 MB"/>
+		<Property name="log.output.pattern" value="%d{yyyy-MM-dd HH:mm:ss.SSS} %-5level %logger{36} - %msg%n"/>
+	</Properties>
+
+	<Appenders>
+		<Console name="ConsoleAppender" target="SYSTEM_OUT">
+			<Filters>
+				<ThresholdFilter level="info"/>
+			</Filters>
+			<PatternLayout pattern="${log.output.pattern}" />
+		</Console>
+	</Appenders>
+
+	<Loggers>
+		<Root level="info">
+			<AppenderRef ref="ConsoleAppender"/>
+		</Root>
+	</Loggers>
+
+</Configuration>
