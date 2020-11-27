@@ -29,7 +29,17 @@
 			自定义 handler，http 请求响应业务处理和异常统一处理
 
 ##### 启动
-
+	
+	扩展点：
+	
+		①，过滤器 org.lushen.mrh.http.server.netty.HttpFilter，如果使用springboot，实现接口并配置为bean，实现Ordered接口优先级排序
+		
+		②，加解密 org.lushen.mrh.http.server.netty.crypto.CryptoProvider，如果使用springboot，实现接口并配置为bean即可
+		
+		③，业务处理 org.lushen.mrh.http.server.netty.HttpResolver，如果使用springboot，实现接口并配置为bean即可
+	
+	具体信息查看源码.
+	
 	springboot方式启动：
 	
 		①，在application.properties中添加配置：
@@ -69,6 +79,4 @@
 			httpServer.close();
 		
 		}
-	
-	其他详细配置查看代码
 
